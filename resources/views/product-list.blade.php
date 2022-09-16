@@ -6,50 +6,14 @@
 
 @section('content')
     <div>
+        @foreach($products as $product)
+            <h3><a href="/product/{{$product->id}}" >{{$product->name}}</a></h3>
+            <h1>{{$product->id}}</h1>
+            <p>Prix TTC : {{$product->price}}</p>
+            <img src="{{$product->image}}">
 
-        <h3>Nom du produit</h3>
-        <p>Prix TTC : </p>
-        <p>Prix HT : </p>
-        <!--        --><?php //if ($product["discount"]!= null) { ?>
-        <p>Prix Discount </p>
-
-        <p> Attend les soldes </p>
-
-        <p> Image du produit </p>
-
-        <hr>
-
+            <hr>
+        @endforeach
     </div>
 
-    <div>
-
-        <h3>Nom du produit</h3>
-        <p>Prix TTC : </p>
-        <p>Prix HT : </p>
-        <!--        --><?php //if ($product["discount"]!= null) { ?>
-        <p>Prix Discount </p>
-
-        <p> Attend les soldes </p>
-
-        <p> Image du produit </p>
-
-        <hr>
-
-    </div>
-
-    <div>
-
-        <h3>Nom du produit</h3>
-        <p>Prix TTC : </p>
-        <p>Prix HT : </p>
-        <!--        --><?php //if ($product["discount"]!= null) { ?>
-        <p>Prix Discount </p>
-
-        <p> Attend les soldes </p>
-
-        <p> Image du produit </p>
-
-        <hr>
-
-    </div>
 @endsection

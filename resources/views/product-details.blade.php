@@ -4,13 +4,17 @@
     Détails Produit
 @endsection
 
+<?php
+dd($products);
+?>
 @section('content')
     <div>
 
-        <h3>Nom du produit</h3>
+        <h3>Nom du produit {{request('id')}}</h3>
+
         <p>Prix TTC : </p>
         <p>Prix HT : </p>
-        <!--        --><?php //if ($product["discount"]!= null) { ?>
+
         <p>Prix Discount </p>
 
         <p> Attend les soldes </p>

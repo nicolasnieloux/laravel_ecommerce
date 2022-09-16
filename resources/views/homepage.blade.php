@@ -6,7 +6,8 @@
 
 @section('content')
 
-    <div>
+
+      <div>
 
         <h3>Nom du produit</h3>
         <p>Prix TTC : </p>

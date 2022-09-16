@@ -31,3 +31,4 @@ Route::get('product/{id}', [ProductController::class, "productDetail"]);
 
 Route::get('cart',[CartController::class, 'show']);
 
+Route::get('test',[\App\Http\Controllers\TestController::class,'index']);
