@@ -12,7 +12,7 @@ class BackOfficeController extends Controller
 
     public function index()
     {
-        $products = Product::all();
+        $products = Product::with('category')->get();
 //        $products = Product::with('category')->get(); eager loading
 
         return view('backoffice', ['products' => $products]);
@@ -28,6 +28,12 @@ class BackOfficeController extends Controller
 
     public function store(Request $request)
     {
+
+        $request->validate([
+            'name' => 'required',
+            'description' => 'max:255',
+            'price' => 'integer|min:1',
+        ]);
         $product = new Product();
         $product->name = $request->input('name');
         $product->description = $request->input('description');

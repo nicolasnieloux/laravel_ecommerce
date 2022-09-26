@@ -14,11 +14,11 @@
              @foreach($categories as $category)
 
                     <p>{{$category->name}}</p>
-                        @foreach($category->product as $product)
+                        @foreach($category->products as $product)
                             <p>Produit : {{$product->name ?? 'Aucun'}}</p>
                         @endforeach
                     <hr>
         </div>
 
-                @endforeach
+              @endforeach
 @endsection

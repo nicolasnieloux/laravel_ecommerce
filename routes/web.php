@@ -52,6 +52,7 @@ Route::get('/backoffice', [BackOfficeController::class, 'index'])->name('backoff
 Route::get('/backoffice/create', [BackOfficeController::class, 'create']);
 Route::post('/backoffice', [BackOfficeController::class, 'store']);
 
+
 //Update un produit
 Route::get('/product-edit/{id}', [BackOfficeController::class, 'edit'])->name('backofficeEdit');
 Route::put('/backoffice/update', [BackOfficeController::class, 'update']);
@@ -64,3 +65,7 @@ Route::get('/backoffice/order/{id}',[BackOfficeOrderController::class, 'show']);
 
 //Afficher les catégories
 Route::get('/backoffice/categories/index', [CategoryController::class, 'index']);
+
+
+
+Route::post('/product/cart/add', [CartController::class, 'cart']);

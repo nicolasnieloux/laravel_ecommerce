@@ -22,11 +22,11 @@ class ProductController extends Controller
 
     public function productDetail($id)
     {
-        $products=Product::find($id);
-
+        $product=Product::find($id);
+        dd($product);
 //        $products = DB::table('products')->where('id', $id)->get();
 //        $products = DB::select('select * from products where id=$id');
-        return view('product-details', ['products' => $products]);
+        return view('product-details', ['product' => $product]);
     }
 
 public function productbyaz()
