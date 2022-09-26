@@ -11,21 +11,14 @@
         <div class="table-responsive">
 
 
-            <tr> @foreach($categories as $category)
+             @foreach($categories as $category)
 
-                <p>{{$category->name}}</p>
-
-                    @foreach($category->product as $product)
-
-                        <p>Produit : {{$product->name ?? 'Aucun'}}</p>
-
-                    @endforeach
-
-                        <hr>
-
-
-            {{--                    Category : {{$product->category->name}}--}}
+                    <p>{{$category->name}}</p>
+                        @foreach($category->product as $product)
+                            <p>Produit : {{$product->name ?? 'Aucun'}}</p>
+                        @endforeach
+                    <hr>
         </div>
 
-    @endforeach
+                @endforeach
 @endsection
