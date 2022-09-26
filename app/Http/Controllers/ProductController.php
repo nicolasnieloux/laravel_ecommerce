@@ -2,24 +2,46 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use App\Models;
 
 class ProductController extends Controller
 {
-    public function productList(): string
+    public function productList()
     {
-        $products = DB::select('select * from products');
-        return view('product-list', ['products' => $products]);
+        $products = Product::all(); //Eloquent - Affiche tous les produits
+        $title = "Liste toto";
+
+
+        //   $products = DB::select('select * from products'); QUERY
+        return view('product-list', ['products' => $products], ['toto' => $title]);
 
     }
 
     public function productDetail($id)
     {
+        $products=Product::find($id);
 
-        $products = DB::select('select * from products where id=$id');
-        return view('product-details', ['products' => $id]);
+//        $products = DB::table('products')->where('id', $id)->get();
+//        $products = DB::select('select * from products where id=$id');
+        return view('product-details', ['products' => $products]);
     }
+
+public function productbyaz()
+{
+//        $products=Models\Product::all()->sortBy("name"); //Eloquent - Affiche tous les produits par ordre alphabétique Collection
+    $products = Product::orderBy('name', 'asc')->get();
+    return view('orderbyaz', ['products' => $products]);
+}
+
+public function productByPrice()
+{
+    $products = Product::orderBy('price', 'asc')->get();
+    return view('orderbyprice', ['products' => $products]);
+
+}
 
 
 }

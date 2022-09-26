@@ -1,0 +1,28 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Order extends Model
+{
+    protected $table = 'orders';
+    use HasFactory;
+
+    public function order_product()
+    {
+        return $this-> hasMany(Order_Product::class);
+    }
+
+    public function customer()
+    {
+        return $this-> belongsTo(Customer::class);
+    }
+
+    public function products()
+    {
+        return $this->belongsToMany(Product::class);
+    }
+
+}
