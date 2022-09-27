@@ -20,10 +20,16 @@ class ProductController extends Controller
 
     }
 
-    public function productDetail($id)
+    public function productDetail(Request $request, $id)
     {
+        $request->validate([
+            'quantity' => 'max:$product->quantity', 'min:1',
+        ]);
+
         $product=Product::find($id);
-        dd($product);
+
+
+
 //        $products = DB::table('products')->where('id', $id)->get();
 //        $products = DB::select('select * from products where id=$id');
         return view('product-details', ['product' => $product]);

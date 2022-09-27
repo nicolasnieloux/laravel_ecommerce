@@ -16,11 +16,23 @@
 {{--            </div>--}}
             <div class="form-group">
                 <label for="name">Name</label>
-                <input type="text" class="form-control" name="name" id="name">
+                <input type="text"
+                       class="form-control @error('name') is-danger @enderror"
+                       name="name"
+                       id="name"
+                       value="{{old('name')}}">
+
+                    @if ($errors->has('name'))
+                        <p class="help is-danger">{{$errors->first('name')}}</p>
+                    @endif
             </div>
-            <div class="form-group">
+
+                <div class="form-group">
                 <label for="description">Description</label>
-                <input type="text" class="form-control" name="description" id="description">
+                <input type="text" class="form-control @error('description') is-danger @enderror" name="description" id="description">
+                    @if ($errors->has('description'))
+                    <p class="help is-danger">{{$errors->first('description')}}</p>
+                    @endif
             </div>
 
 {{--            <div class="form-group">--}}
@@ -30,7 +42,13 @@
 
             <div class="form-group">
                 <label for="price">Price</label>
-                <input type="number" class="form-control" name="price" id="price">
+                <input type="number"
+                       class="form-control @error('price') is-danger @enderror"
+                       name="price"
+                       id="price">
+                @error('price')
+                <p class="help is-danger">{{$errors->first('price')}}</p>
+                @enderror
             </div>
 
 {{--            <div class="form-group">--}}
