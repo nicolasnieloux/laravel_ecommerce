@@ -20,19 +20,36 @@ class ProductController extends Controller
 
     }
 
-    public function productDetail(Request $request, $id)
+
+    public function productDetail($id)
     {
-        $request->validate([
-            'quantity' => 'max:$product->quantity', 'min:1',
+        $product = Product::find($id);
+        return view('product-details', ['product'=>$product, 'id'=>$id]);
+
+    }
+
+
+    public function productOrder(Request $request)
+    {
+        $product = Product::find($request->product_id);
+
+$qty=$request->only('product_id', 'quantity');
+
+
+    $request->validate([
+            'quantity' => ['integer','min:1', 'max:' . $product->quantity]
         ]);
 
-        $product=Product::find($id);
+        return view('cart', ['product'=>$product, 'qty'=>$qty]);
+    }
 
 
 
-//        $products = DB::table('products')->where('id', $id)->get();
-//        $products = DB::select('select * from products where id=$id');
-        return view('product-details', ['product' => $product]);
+
+    public function create()
+    {
+        return view('backoffice.products.create');
+
     }
 
 public function productbyaz()

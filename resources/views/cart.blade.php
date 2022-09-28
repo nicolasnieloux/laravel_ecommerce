@@ -5,11 +5,10 @@
 @endsection
 
 @section('content')
-    <h3>Cart</h3>
-    <p>Prix TTC Unitaire :</p>
 
 
-    <p>Prix Discount TTC Unitaire </p>
-    <p>Quantité : </p>
+    <p>Produit commandé: {{$product->id}}</p>
+    <p>Produit commandé: {{$product->name}}</p>
+    <p>Quantité commandée : {{$qty}} </p>
 
 @endsection

@@ -29,11 +29,14 @@ Route::get('/', [HomeController::class, "index"]);
 
 Route::get('product', [ProductController::class, "productList"]);
 
-
+//Verification de la commande
 Route::get('product/{id}', [ProductController::class, "productDetail"]);
+Route::post('cart', [ProductController::class, 'productOrder']);
 
 
-Route::get('/cart',[CartController::class, 'show']);
+
+//
+//Route::get('/cart',[CartController::class, 'show']);
 
 Route::get('/test',[\App\Http\Controllers\TestController::class,'index']);
 
@@ -68,4 +71,4 @@ Route::get('/backoffice/categories/index', [CategoryController::class, 'index'])
 
 
 
-Route::post('/product/cart/add', [CartController::class, 'cart']);
+Route::get('/cart', [CartController::class, 'show']);

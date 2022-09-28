@@ -7,29 +7,17 @@ use Illuminate\Http\Request;
 
 class CartController extends Controller
 {
-  public function show()
+  public function show(Request $request)
  {
-        return view('cart');
+     $product=Product::find($request->product_id);
+        $qty=$request->quantity;
+
+     $request->validate([
+         'quantity' => ['min:1', 'max:' . $product->quantity],
+     ]);
+
+        return view('cart', ['product' => $product, 'qty'=>$qty]);
    }
-
-    public function cart (Request $request, $id)
-    {
-        $product=Product::find($id);
-
-
-        $product->quantity = $request->input('quantity');
-
-        $quantity = $request->input('quantity');
-
-        $request->validate([
-            'quantity' => 'required | integer | min :1'
-        ]);
-
-        if ($quantity > $product->quantity) {
-            return redirect('/product')->with('error', 'Pas assez de produits en stock.');
-        }
-        return view('cart', compact('product'), compact('quantity'));
-    }
 
 
 
