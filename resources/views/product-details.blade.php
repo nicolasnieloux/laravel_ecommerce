@@ -19,7 +19,7 @@
             <input type="number" name="quantity" min="1"  max="{{$product->quantity}}">
             <input type="hidden" name="product_id" value="{{$product->id}}">
 {{--            <input type="hidden" name="qty" value="">--}}
-            @error('quantity')
+            @error('quantity')L
             <div class="alert alert-danger">{{"Message avertissement"}}</div>
             @enderror
             <button type="submit" name="add_to_cart"

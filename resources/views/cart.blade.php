@@ -9,6 +9,6 @@
 
     <p>Produit commandé: {{$product->id}}</p>
     <p>Produit commandé: {{$product->name}}</p>
-    <p>Quantité commandée : {{$qty}} </p>
+    <p>Quantité commandée : {{$qty['quantity']}} </p>
 
 @endsection
